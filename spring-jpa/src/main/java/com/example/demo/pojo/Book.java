@@ -1,10 +1,10 @@
 package com.example.demo.pojo;
 
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity   //这个注解表示这个类对应这个数据库表
 public class Book {
