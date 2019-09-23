@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface BookMapper {
 
+        //使用方法实现mybatis
         @Select("SELECT * FROM book")
         Page<Book> getUserList();
 
