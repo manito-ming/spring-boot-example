@@ -2,8 +2,6 @@ package org.example.pagehelper.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.apache.catalina.User;
-import org.example.pagehelper.BookService.BookService;
 import org.example.pagehelper.BookService.impl.BookServiceImpl;
 import org.example.pagehelper.dao.BookMapper;
 import org.example.pagehelper.pojo.Book;
@@ -35,9 +33,9 @@ public class BookController {
 
 
     @RequestMapping("/getBookList1")
-    public Page<Book> getBookList1(Integer pageNum,Integer pageSize){
+    public  org.example.pagehelper.pojo.Page<Book> getBookList1(Integer pageNum,Integer pageSize){
 
-        Page<Book> userList = bookServiceimpl.selectAllLimit(pageNum,pageSize);
+        org.example.pagehelper.pojo.Page<Book> userList = bookServiceimpl.selectAllLimit(pageNum,pageSize);
         System.out.println(userList);
         return userList;
     }
