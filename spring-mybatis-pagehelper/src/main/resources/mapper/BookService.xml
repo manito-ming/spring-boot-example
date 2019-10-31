@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.pagehelper.demo.dao.BookDao">
+    <resultMap id="BaseResultMap" type="org.example.pagehelper.demo.model.Book">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="INTEGER"/>
+        <result column="writer" property="writer" jdbcType="VARCHAR"/>
+        <result column="introduction" property="introduction" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <select id="getBookList" resultMap="BaseResultMap">
+		SELECT * FROM book
+	</select>
+
+
+</mapper>
