@@ -22,4 +22,17 @@ public class TestController {
     public Book getBooks(Integer id) {
         return bookService.get(id);
     }
+//    http://localhost:8080/deleteBook?id=2
+    @RequestMapping("/deleteBook")
+    public void deleteBooks(Integer id) {
+         bookService.delete(id);
+    }
+
+    //    http://localhost:8080/saveOrUpdateBook?id=2
+    @RequestMapping("/saveOrUpdateBook")
+    public void saveOrUpdate(Integer id) {
+        Book book = bookService.get(id);
+        book.setName("操作系统");
+        bookService.saveOrUpdate(book);
+    }
 }
