@@ -18,22 +18,22 @@ public class BookServiceImpl implements  BookService {
     @Autowired
     private BookDao bookDao;
     @Override
-    @CachePut(value = "book", key = "#book.id")
-    public Book saveOrUpdate(Book user) {
-        return null;
+    @CachePut(value = "book", key = "#book.id")//设置缓存
+    public void saveOrUpdate(Book book) {
+        bookDao.insertOrUpdate(book);
     }
 
     @Override
-    @Cacheable(value = "book", key = "#book.id")
+    @Cacheable(value = "book", key = "#id")
     public Book get(Integer id) {
-        System.out.println("没有走缓存");
+        System.out.println("走缓存");
         Book bookList = bookDao.getBookList(id);
         return bookList;
     }
 
     @Override
     @CacheEvict(value = "book")
-    public void delete(Long id) {
-
+    public void delete(Integer id) {
+        bookDao.delete(id);
     }
 }

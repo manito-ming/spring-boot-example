@@ -8,10 +8,10 @@ import com.example.ehcache.entity.Book;
  */
 public interface BookService {
 
-    Book saveOrUpdate(Book user);
+    void saveOrUpdate(Book book);
 
 
     Book get(Integer id);
 
-    void delete(Long id);
+    void delete(Integer id);
 }

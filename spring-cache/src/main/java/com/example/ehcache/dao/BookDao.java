@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BookDao {
-    void delete(String uuid);
+    void delete(Integer id);
 
     Book update(Book user);
 
     Book getBookList(@Param("id") Integer id);
 
-//    int save(@Param("user") Book user);
+    int insertOrUpdate(Book user);
 }
