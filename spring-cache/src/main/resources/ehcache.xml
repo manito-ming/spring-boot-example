@@ -18,7 +18,7 @@
             memoryStoreEvictionPolicy="LRU"/>
 
     <!--
-    缓存文件名：user，同样的可以配置多个缓存
+    缓存文件名：book，同样的可以配置多个缓存
     maxElementsInMemory：内存中最多存储
     eternal：外部存储
     overflowToDisk：超出缓存到磁盘

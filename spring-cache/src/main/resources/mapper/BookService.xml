@@ -15,5 +15,30 @@
 		SELECT * FROM book where id=#{id}
 	</select>
 
+    <insert id="insertBook" parameterType="com.example.ehcache.entity.Book">
+        insert into book(introduction, name, writer)values (#{introduction,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{writer,jdbcType=VARCHAR})
+    </insert>
+<!--    更新-->
+    <update id="update" parameterType="com.example.ehcache.entity.Book">
+        UPDATE book set name=#{name},
+          introduction = #{introduction}
+         where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM
+        book WHERE id=#{id}
+    </delete>
+
+<!--    存在则为更新，不存在则为新增-->
+    <insert id="insertOrUpdate" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.ehcache.entity.Book">
+		INSERT INTO book(introduction, name, writer)values
+		(#{introduction,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{writer,jdbcType=VARCHAR}
+		)
+		ON DUPLICATE KEY UPDATE
+		id = LAST_INSERT_ID(id),
+		introduction = values(introduction),
+		name = values(name), writer = values(writer)
+	</insert>
 
 </mapper>
