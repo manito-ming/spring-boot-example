@@ -2,10 +2,10 @@
 server:
   port: 8080
 
-##ÈÕÖ¾¼¶±ğ  ¿ÉÒÔ¿´µ½ÔÚmybatisÖĞÖ´ĞĞµÄsql
+##æ—¥å¿—çº§åˆ«  å¯ä»¥çœ‹åˆ°åœ¨mybatisä¸­æ‰§è¡Œçš„sql
 logging:
   level:
-    org.example.pagehelper.demo.dao: debug #Ö¸¶¨ÁË°üÃû£¬²»Ö¸¶¨µÄ»°¾ÍÊÇÈ«²¿Ä¿Â¼
+    org.example.pagehelper.demo.dao: debug #æŒ‡å®šäº†åŒ…åï¼Œä¸æŒ‡å®šçš„è¯å°±æ˜¯å…¨éƒ¨ç›®å½•
 
 spring:
   datasource:
@@ -14,13 +14,12 @@ spring:
     password: 1234567
     driver-class-name: com.mysql.jdbc.Driver
 
-#MybatisÅäÖÃ
+#Mybatisé…ç½®
 mybatis:
-  type-aliases-package: cn.howieli.boot.model
-  mapper-locations:
-    - classpath:mapper/*.xml
+  type-aliases-package: org.example.pagehelper.demo.model
+  mapper-locations: classpath:mapper/*.xml
 
-#·ÖÒ³²å¼şÅäÖÃ
+#åˆ†é¡µæ’ä»¶é…ç½®
 pagehelper:
   helperDialect: mysql
   reasonable: true
