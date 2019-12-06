@@ -3,6 +3,7 @@ package org.task.demo.task.job;
 import lombok.extern.slf4j.Slf4j;
 
 import org.slf4j.Logger;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.util.DateUtils;
@@ -14,6 +15,7 @@ import java.util.Date;
  * @date 2019/11/29 17:02
  */
 @Component
+@EnableAsync
 @Slf4j
 public class TaskJob {
     @Scheduled(cron = "0 0/1 * * * ?")

@@ -22,30 +22,30 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
  * </p>
  *
  * @package: com.xkcoding.task.config
- * @description: 定时任务配置，配置线程池，使用不同线程执行任务，提升效率
+ * @description: 现在在yml文件中配置了  注解加在了DemoApplication类上
  * @author: yangkai.shen
  * @date: Created in 2018/11/22 19:02
  * @copyright: Copyright (c) 2018
  * @version: V1.0
  * @modified: yangkai.shen
  */
-@Configuration
-@EnableScheduling
-@ComponentScan(basePackages = {"org.task.demo.task.job"})
-public class TaskConfig implements SchedulingConfigurer {
-    @Override
-    public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
-        taskRegistrar.setScheduler(taskExecutor());
-    }
+//@Configuration
+//@EnableScheduling
+//@ComponentScan(basePackages = {"org.task.demo.task.job"})
+//public class TaskConfig implements SchedulingConfigurer {
+//    @Override
+//    public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
+//        taskRegistrar.setScheduler(taskExecutor());
+//    }
 
-    /**
-     * 这里等同于配置文件配置
-     * {@code spring.task.scheduling.pool.size=20} - Maximum allowed number of threads.
-     * {@code spring.task.scheduling.thread-name-prefix=Job-Thread- }
-     * {@link org.springframework.boot.autoconfigure.task.TaskSchedulingProperties}
-     */
-    @Bean
-    public Executor taskExecutor() {
-        return new ScheduledThreadPoolExecutor(20, new BasicThreadFactory.Builder().namingPattern("Job-Thread-%d").build());
-    }
-}
+//    /**
+//     * 这里等同于配置文件配置
+//     * {@code spring.task.scheduling.pool.size=20} - Maximum allowed number of threads.
+//     * {@code spring.task.scheduling.thread-name-prefix=Job-Thread- }
+//     * {@link org.springframework.boot.autoconfigure.task.TaskSchedulingProperties}
+//     */
+//    @Bean
+//    public Executor taskExecutor() {
+//        return new ScheduledThreadPoolExecutor(20, new BasicThreadFactory.Builder().namingPattern("Job-Thread-%d").build());
+//    }
+//}
