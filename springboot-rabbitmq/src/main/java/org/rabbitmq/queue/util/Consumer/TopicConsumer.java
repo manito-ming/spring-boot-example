@@ -14,7 +14,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class TopicConsumer {
 
-
+    /**
+     * 消费者  queues的值代表队列一绑定的队列
+     * */
     @RabbitListener(queues = RabbitMQConfig.TOPIC_QUEUE1)
     public void receiveTopic1(String book) {
         log.info("【receiveTopic1监听到消息】" + book);
@@ -24,5 +26,8 @@ public class TopicConsumer {
         log.info("【receiveTopic2监听到消息】" + book);
     }
 
-
+    @RabbitListener(queues = RabbitMQConfig.TOPIC_QUEUE3)
+    public void receiveTopic3(String book) {
+        log.info("【receiveTopic3监听到消息】" + book);
+    }
 }

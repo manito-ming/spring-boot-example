@@ -1,7 +1,6 @@
 package org.rabbitmq.queue.util.Producer;
 
 import com.alibaba.fastjson.JSON;
-import com.rabbitmq.tools.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.rabbitmq.queue.config.RabbitMQConfig;
 import org.rabbitmq.queue.model.Book;
