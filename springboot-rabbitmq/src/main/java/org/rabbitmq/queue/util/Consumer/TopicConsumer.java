@@ -1,7 +1,7 @@
 package org.rabbitmq.queue.util.Consumer;
 
 import lombok.extern.slf4j.Slf4j;
-import org.rabbitmq.queue.config.RabbitMQConfig;
+import org.rabbitmq.queue.Constants.RabbitConstant;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -17,16 +17,16 @@ public class TopicConsumer {
     /**
      * 消费者  queues的值代表队列一绑定的队列
      * */
-    @RabbitListener(queues = RabbitMQConfig.TOPIC_QUEUE1)
+    @RabbitListener(queues = RabbitConstant.TOPIC_QUEUE1)
     public void receiveTopic1(String book) {
         log.info("【receiveTopic1监听到消息】" + book);
     }
-    @RabbitListener(queues = RabbitMQConfig.TOPIC_QUEUE2)
+    @RabbitListener(queues = RabbitConstant.TOPIC_QUEUE2)
     public void receiveTopic2(String book) {
         log.info("【receiveTopic2监听到消息】" + book);
     }
 
-    @RabbitListener(queues = RabbitMQConfig.TOPIC_QUEUE3)
+    @RabbitListener(queues = RabbitConstant.TOPIC_QUEUE3)
     public void receiveTopic3(String book) {
         log.info("【receiveTopic3监听到消息】" + book);
     }

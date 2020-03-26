@@ -1,6 +1,7 @@
 package org.rabbitmq.queue.util.Consumer;
 
 import lombok.extern.slf4j.Slf4j;
+import org.rabbitmq.queue.Constants.RabbitConstant;
 import org.rabbitmq.queue.config.RabbitMQConfig;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class DirectConsumer {
 
-    @RabbitListener(queues = RabbitMQConfig.DIRECT_QUEUE)
+    @RabbitListener(queues = RabbitConstant.DIRECT_QUEUE)
     public void receiverDirectQueue(String book){
         log.info("监听到的消息:{}",book);
     }

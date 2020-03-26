@@ -2,6 +2,7 @@ package org.rabbitmq.queue.Controller;
 
 
 import org.rabbitmq.queue.util.Producer.DirectProducer;
+import org.rabbitmq.queue.util.Producer.FanoutProducer;
 import org.rabbitmq.queue.util.Producer.TopicProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ public class TestController {
     @Autowired
     public TopicProducer topicProducer;
 
+    @Autowired
+    private FanoutProducer fanoutProducer;
     @GetMapping("/sendDirectQueue")
     public String sendDirectQueue(){
         directProducer.sendDirectProducer();
@@ -29,4 +32,9 @@ public class TestController {
     }
 
 
+    @GetMapping("/sendFanoutQueue")
+    public String sendFanoutQueue(){
+        fanoutProducer.sendFanoutProducer();
+        return "OK";
+    }
 }
