@@ -16,10 +16,10 @@ import java.util.Date;
 @Slf4j
 public class DelayConsumer {
 
-    //如果不消费的话ttl时间之后消息会过期
-//    @RabbitListener(queues = RabbitConstant.DELAY_QUEUE)
-//    public void receiverDirectQueue(String book){
-//        Date date = new Date();
-//        log.info("时间:{},监听到的消息{}",date,book);
-//    }
+    //如果不消费的话ttl时间之后消息会过期  实验时可将此处注释
+    @RabbitListener(queues = RabbitConstant.DELAY_QUEUE)
+    public void receiverDirectQueue(String book){
+        Date date = new Date();
+        log.info("时间:{},监听到的消息{}",date,book);
+    }
 }
