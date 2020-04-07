@@ -37,4 +37,19 @@ public class RabbitConstant {
      * 路由1
      */
     public static final String TOPIC_ROUTING_KEY_ONE = "topic.topic";
+
+
+    /**
+     * 延迟队列
+     */
+    public static final String DELAY_QUEUE = "delay.queue";
+
+    /**
+     * 延迟队列交换器
+     */
+    public static final String DELAY_MODE_QUEUE = "delay.mode";
+
+    //死信路由
+    public static final String DELAY_ROUTING_KEY = "delay-routing-key";
+
 }

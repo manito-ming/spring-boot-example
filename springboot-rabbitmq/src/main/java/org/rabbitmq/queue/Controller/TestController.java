@@ -1,6 +1,7 @@
 package org.rabbitmq.queue.Controller;
 
 
+import org.rabbitmq.queue.util.Producer.DelayProducer;
 import org.rabbitmq.queue.util.Producer.DirectProducer;
 import org.rabbitmq.queue.util.Producer.FanoutProducer;
 import org.rabbitmq.queue.util.Producer.TopicProducer;
@@ -18,6 +19,10 @@ public class TestController {
 
     @Autowired
     private FanoutProducer fanoutProducer;
+
+    @Autowired
+    private DelayProducer delayProducer;
+
     @GetMapping("/sendDirectQueue")
     public String sendDirectQueue(){
         directProducer.sendDirectProducer();
@@ -35,6 +40,12 @@ public class TestController {
     @GetMapping("/sendFanoutQueue")
     public String sendFanoutQueue(){
         fanoutProducer.sendFanoutProducer();
+        return "OK";
+    }
+
+    @GetMapping("/sendDelayQueue")
+    public String sendDelayQueue(){
+        delayProducer.sendDelayProducer();
         return "OK";
     }
 }

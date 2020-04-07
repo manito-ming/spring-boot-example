@@ -7,6 +7,9 @@ import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 @Slf4j
 @Configuration
@@ -113,5 +116,37 @@ public class RabbitMQConfig {
     @Bean
     public Binding topicBinding1() {
         return BindingBuilder.bind(fanoutExchange()).to(topicExchange()).with(RabbitConstant.TOPIC_ROUTING_KEY_ONE);
+    }
+
+    /**
+     * 延迟队列
+     */
+    @Bean
+    public Queue delayQueue() {
+
+        Map<String, Object> args = new HashMap<>();
+        // x-dead-letter-exchange    这里声明当前队列绑定的死信交换机
+        args.put("x-dead-letter-exchange", RabbitConstant.DELAY_MODE_QUEUE);
+        // x-dead-letter-routing-key  这里声明当前队列的死信路由key
+        args.put("x-dead-letter-routing-key", RabbitConstant.DELAY_ROUTING_KEY);
+        // x-message-ttl  声明队列的TTL
+        args.put("x-message-ttl", 60000);
+        log.info("延迟队列绑定:"+RabbitConstant.DELAY_QUEUE);
+
+        return QueueBuilder.durable(RabbitConstant.DELAY_QUEUE).withArguments(args).build();
+    }
+    //创建延时交换机
+    @Bean
+    public Exchange getDelayExchange(){
+        log.info("延迟队列交换机绑定:"+RabbitConstant.DELAY_MODE_QUEUE);
+
+        return ExchangeBuilder.directExchange(RabbitConstant.DELAY_MODE_QUEUE).durable(true).build();
+    }
+    //延时与延时交换机进行绑定
+    @Bean
+    public Binding bindDelay(){
+        log.info("延迟队列路由:"+RabbitConstant.DELAY_ROUTING_KEY);
+
+        return BindingBuilder.bind(delayQueue()).to(getDelayExchange()).with(RabbitConstant.DELAY_ROUTING_KEY).noargs();
     }
 }
