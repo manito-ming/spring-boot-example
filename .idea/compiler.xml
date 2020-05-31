@@ -6,12 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-pagehelper" />
-        <module name="spring-jpa" />
         <module name="demo" />
+        <module name="demo (1) (org.task)" />
+        <module name="ehcache" />
+        <module name="pagehelper" />
+        <module name="spring-jpa" />
+        <module name="spring-pagehelper" />
+        <module name="springboot-rabbitmq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="canal" target="1.5" />
+      <module name="demo (1) (org.example.pagehelper)" target="1.5" />
       <module name="springboot-jpa" target="1.5" />
     </bytecodeTargetLevel>
   </component>

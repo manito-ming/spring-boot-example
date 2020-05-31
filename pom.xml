@@ -11,6 +11,10 @@
     <modules>
         <module>spring-pagehelper</module>
         <module>spring-jpa</module>
+        <module>springboot-rabbitmq</module>
+        <module>spring-mybatis-pagehelper</module>
+        <module>spring-cache</module>
+        <module>spring-task</module>
     </modules>
     <properties>
     <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
